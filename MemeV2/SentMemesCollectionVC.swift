@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class MemesCollectionViewController: UICollectionViewController {
+class SentMemesCollectionVC: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

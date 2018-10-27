@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MemesTableViewController: UIViewController {
+class SentMemesTableVC: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
