@@ -30,6 +30,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="LUK-wI-pUZ"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="NGv-NZ-3dE"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -44,10 +48,13 @@
                     <navigationItem key="navigationItem" title="Sent Memes" id="HmF-BX-tKH">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="3My-Kb-WtZ">
                             <connections>
-                                <segue destination="hte-oW-MKk" kind="modal" id="Ptl-6p-oin"/>
+                                <segue destination="hte-oW-MKk" kind="presentation" id="Ptl-6p-oin"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="rxM-le-UCr" id="2zi-mK-NI9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -115,7 +122,7 @@
                     <navigationItem key="navigationItem" title="Sent Memes" id="Qkw-kE-Iju">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="b7w-lv-t3G">
                             <connections>
-                                <segue destination="hte-oW-MKk" kind="modal" id="0be-eC-2Va"/>
+                                <segue destination="hte-oW-MKk" kind="presentation" id="0be-eC-2Va"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -165,7 +172,7 @@
         <!--Meme Editor View Controller-->
         <scene sceneID="FxT-1h-5vX">
             <objects>
-                <viewController id="hte-oW-MKk" customClass="MemeEditorViewController" customModule="MemeV1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hte-oW-MKk" customClass="MemeEditorViewController" customModule="MemeV2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UtT-NO-wqI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

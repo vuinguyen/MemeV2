@@ -195,9 +195,16 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
   }
 
   func save() {
-    _ = Meme(topText: topTextField.text ?? topFieldDefaultText,
+    let meme = Meme(topText: topTextField.text ?? topFieldDefaultText,
              bottomText: bottomTextField.text ?? bottomFieldDefaultText,
              originalImage: memeImageView.image, memedImage: memedImage)
+
+    // Add it to the memes array in the Application Delegate
+    let object = UIApplication.shared.delegate
+    let appDelegate = object as! AppDelegate
+    appDelegate.memes.append(meme)
+    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "refreshMemeData"), object: nil)
+    print("Meme Saved --- Top Text: \(String(describing: meme.topText)) , and Bottom Text: \(String(describing: meme.bottomText))")
   }
 }
 

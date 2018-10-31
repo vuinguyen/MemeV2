@@ -12,10 +12,15 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
-
+  var memes = [Meme]()
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
+
+    // this is where we add some default data to Meme just to test the table and collection view controllers
+    // let's add the collection and table images here
+    memes = [Meme(topText: "This Is A ...", bottomText: "Table!", originalImage: UIImage(named: "table"), memedImage: UIImage(named: "table")),
+    Meme(topText: "This Is A ...", bottomText: "Collection!", originalImage: UIImage(named: "collection"), memedImage: UIImage(named: "collection"))]
     return true
   }
 
