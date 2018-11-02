@@ -24,16 +24,25 @@ class SentMemesTableVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
 
-    NotificationCenter.default.addObserver(self, selector: #selector(refreshTable), name: NSNotification.Name(rawValue: "refreshMemeData"), object: nil)
     print("Print Memes in Table View")
     for meme in memes {
       print("Top Text: \(String(describing: meme.topText)) , and Bottom Text: \(String(describing: meme.bottomText))")
     }
   }
 
-  override func viewDidDisappear(_ animated: Bool) {
-
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    NotificationCenter.default.addObserver(self, selector: #selector(refreshTable),
+                                           name: NSNotification.Name(rawValue: "refreshMemeData"), object: nil)
   }
+
+  // this is really bad!
+  /*
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
+    NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "refreshMemeData"), object: nil)
+  }
+ */
 
   @objc func refreshTable() {
     self.tableView.reloadData()
@@ -42,7 +51,6 @@ class SentMemesTableVC: UIViewController, UITableViewDelegate, UITableViewDataSo
   // MARK: Table View Data Source
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return self.memes.count
-    //return 4
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -50,7 +58,10 @@ class SentMemesTableVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     let meme = self.memes[(indexPath as NSIndexPath).row]
 
     // Set the name and image
-    cell.textLabel?.text = meme.bottomText
+    if let topText = meme.topText, let bottomText = meme.bottomText {
+      cell.textLabel?.text = topText + " " + bottomText
+    }
+    cell.imageView?.image = meme.memedImage
 
     return cell
   }

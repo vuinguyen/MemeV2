@@ -8,7 +8,7 @@
 
 import UIKit
 
-private let reuseIdentifier = "MemeCollectionCell"
+private let reuseIdentifier = "MemeCollectionViewCell"
 
 class SentMemesCollectionVC: UICollectionViewController {
 
@@ -27,9 +27,27 @@ class SentMemesCollectionVC: UICollectionViewController {
       print("Top Text: \(String(describing: meme.topText)) , and Bottom Text: \(String(describing: meme.bottomText))")
     }
     // Register cell classes
-    self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+   // self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
     // Do any additional setup after loading the view.
+  }
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    NotificationCenter.default.addObserver(self, selector: #selector(refreshCollection),
+                                           name: NSNotification.Name(rawValue: "refreshMemeData"), object: nil)
+  }
+
+  // this is really bad!
+  /*
+   override func viewWillDisappear(_ animated: Bool) {
+   super.viewDidDisappear(animated)
+   NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "refreshMemeData"), object: nil)
+   }
+   */
+
+  @objc func refreshCollection() {
+    self.collectionView.reloadData()
   }
 
   /*
@@ -46,18 +64,20 @@ class SentMemesCollectionVC: UICollectionViewController {
 
   override func numberOfSections(in collectionView: UICollectionView) -> Int {
     // #warning Incomplete implementation, return the number of sections
-    return 0
+    return 1
   }
 
 
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     // #warning Incomplete implementation, return the number of items
-    return 0
+    return memes.count
   }
 
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MemeCollectionViewCell
+    let meme = self.memes[(indexPath as NSIndexPath).row]
+
+    cell.memeImageView?.image = meme.memedImage
     // Configure the cell
     
     return cell
