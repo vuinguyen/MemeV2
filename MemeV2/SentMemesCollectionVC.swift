@@ -11,6 +11,8 @@ import UIKit
 private let reuseIdentifier = "MemeCollectionViewCell"
 
 class SentMemesCollectionVC: UICollectionViewController {
+  
+  @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
 
   var memes: [Meme]! {
     let object = UIApplication.shared.delegate
@@ -20,16 +22,18 @@ class SentMemesCollectionVC: UICollectionViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = false
+
     print("Printing Memes in Collection View")
     for meme in memes {
       print("Top Text: \(String(describing: meme.topText)) , and Bottom Text: \(String(describing: meme.bottomText))")
     }
-    // Register cell classes
-   // self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
-    // Do any additional setup after loading the view.
+    let space:CGFloat = 3.0
+    let dimension = (view.frame.size.width - (2 * space)) / 3.0
+
+    flowLayout.minimumInteritemSpacing = space
+    flowLayout.minimumLineSpacing = space
+    flowLayout.itemSize = CGSize(width: dimension, height: dimension)
   }
 
   override func viewWillAppear(_ animated: Bool) {
