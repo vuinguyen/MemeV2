@@ -287,7 +287,7 @@
         <!--Meme Detail View Controller-->
         <scene sceneID="Llk-bt-ewg">
             <objects>
-                <viewController storyboardIdentifier="MemeDetail" id="rbM-QN-izs" customClass="MemeDetailViewController" customModule="MemeV2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemeDetailViewController" id="rbM-QN-izs" customClass="MemeDetailViewController" customModule="MemeV2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bev-gX-KBb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -305,6 +305,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ieS-xC-Mrj"/>
                     </view>
+                    <connections>
+                        <outlet property="memeImageView" destination="Gf9-Px-zcu" id="nBt-dF-dLU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aDm-le-Jwi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

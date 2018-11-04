@@ -10,11 +10,18 @@ import UIKit
 
 class MemeDetailViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  var meme: Meme?
 
-        // Do any additional setup after loading the view.
+  @IBOutlet weak var memeImageView: UIImageView!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    // Do any additional setup after loading the view.
+    if let meme = meme {
+      memeImageView.image = meme.memedImage
     }
+  }
     
 
     /*
