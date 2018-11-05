@@ -18,32 +18,24 @@ class SentMemesTableVC: UIViewController, UITableViewDelegate, UITableViewDataSo
 
   private let reuseIdentifier = "MemeTableCell"
 
+  // MARK: Properties
   @IBOutlet weak var tableView: UITableView!
-  
+
+  // MARK: UIViewController
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
-
-    print("Print Memes in Table View")
-    for meme in memes {
-      print("Top Text: \(String(describing: meme.topText)) , and Bottom Text: \(String(describing: meme.bottomText))")
-    }
+    self.tableView.rowHeight = 110
   }
 
+  // Note: we cannot remove the observer (in viewWillDisappear, etc.) because then the notification won't get sent
+  // during app execution (maybe has something to do with switching the views between tabs?)
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     NotificationCenter.default.addObserver(self, selector: #selector(refreshTable),
                                            name: NSNotification.Name(rawValue: "refreshMemeData"), object: nil)
   }
 
-  // this is really bad!
-  /*
-  override func viewWillDisappear(_ animated: Bool) {
-    super.viewDidDisappear(animated)
-    NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "refreshMemeData"), object: nil)
-  }
- */
-
+  // MARK: Helper function to refresh data in table
   @objc func refreshTable() {
     self.tableView.reloadData()
   }
@@ -67,10 +59,8 @@ class SentMemesTableVC: UIViewController, UITableViewDelegate, UITableViewDataSo
   }
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
     let detailController = self.storyboard!.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
     detailController.meme = self.memes[(indexPath as NSIndexPath).row]
     self.navigationController!.pushViewController(detailController, animated: true)
   }
 }
-
