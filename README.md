@@ -10,7 +10,7 @@ FTW!
 
 Demo of app:
 
-![demo of MemeV2 app](/demo/MemeV2Demo.gif?raw=true)
+![demo of MemeV2 app](/demo/MemeV2Demo.gif)
 
 Sample of meme created:
 
