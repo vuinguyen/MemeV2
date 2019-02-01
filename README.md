@@ -10,7 +10,7 @@ FTW!
 
 Demo of app:
 
-![demo of MemeV2 app](/demo/MemeV2Demo.gif)
+![demo of MemeV2 app](https://sunfishempire.files.wordpress.com/2019/02/meme2demo.mp4)
 
 Sample of meme created:
 
