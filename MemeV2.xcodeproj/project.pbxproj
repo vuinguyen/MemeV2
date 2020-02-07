@@ -161,9 +161,11 @@
 				TargetAttributes = {
 					52F4432E2182783F008B0BB2 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1130;
 					};
 					52F4434221827840008B0BB2 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1130;
 						TestTargetID = 52F4432E2182783F008B0BB2;
 					};
 				};
@@ -390,7 +392,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sunfishempire.MemeV2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -409,7 +411,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sunfishempire.MemeV2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -429,7 +431,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sunfishempire.MemeV2Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MemeV2.app/MemeV2";
 			};
@@ -450,7 +452,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sunfishempire.MemeV2Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MemeV2.app/MemeV2";
 			};
